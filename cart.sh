@@ -14,7 +14,7 @@ cd /app
 unzip /tmp/cart.zip
 
 cd /app
-npm install -g npm@11.1.0
+npm install
 
 systemctl daemon-reload
 
