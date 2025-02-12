@@ -17,7 +17,11 @@ cd /app
 unzip /tmp/catalogue.zip
 
 cd /app
-npm install
+
+npm install -g npm@11.1.0
+
+
+
 
 systemctl daemon-reload
 
