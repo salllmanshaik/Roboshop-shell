@@ -5,7 +5,6 @@ dnf install nginx -y
 systemctl enable nginx
 systemctl start nginx
 
-vim /etc/nginx/nginx.conf
 
 cp nginx.conf  /etc/nginx/nginx.conf
 
