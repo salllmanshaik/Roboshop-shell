@@ -3,16 +3,16 @@
 artifact_download(){
   rm -rf /app
   mkdir /app
-  curl -L -o /tmp/$catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip
+  curl -L -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip
   cd /app
-  unzip /tmp/$catalogue.zip
+  unzip /tmp/$component.zip
 }
 
 
 systemd_setup(){
   systemctl daemon-reload
-  systemctl enable $catalogue
-  systemctl restart $catalogue
+  systemctl enable $component
+  systemctl restart $component
 }
 
 app_prereq(){
@@ -54,3 +54,13 @@ python_app_setup(){
 }
 
 
+go_app_setup(){
+  dnf install golang -y
+  app_prereq
+  artifact_download
+  cd /app
+  go mod init $component
+  go get
+  go build
+  systemd_setup
+}
