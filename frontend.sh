@@ -3,8 +3,6 @@ dnf module enable nginx:1.24 -y
 dnf install nginx -y
 
 
-
-
 cp nginx.conf  /etc/nginx/nginx.conf
 
 rm -rf /usr/share/nginx/html/*
@@ -17,4 +15,4 @@ unzip /tmp/frontend.zip
 
 
 systemctl enable nginx
-systemctl restart nginx
+systemctl start nginx
