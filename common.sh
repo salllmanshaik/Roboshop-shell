@@ -3,16 +3,16 @@
 artifact_download(){
   rm -rf /app
   mkdir /app
-  curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip
+  curl -L -o /tmp/$catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip
   cd /app
-  unzip /tmp/user.zip
+  unzip /tmp/$catalogue.zip
 }
 
 
 systemd_setup(){
   systemctl daemon-reload
-  systemctl enable user
-  systemctl restart user
+  systemctl enable $catalogue
+  systemctl restart $catalogue
 }
 
 app_prereq(){
