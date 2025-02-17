@@ -1,4 +1,4 @@
-component = catalogue
+component=catalogue
 source common.sh
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo

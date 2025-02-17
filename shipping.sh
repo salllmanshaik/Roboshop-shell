@@ -1,4 +1,4 @@
-component = shipping
+component=shipping
 source common.sh
 
 
