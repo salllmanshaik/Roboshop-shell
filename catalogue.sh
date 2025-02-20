@@ -1,14 +1,17 @@
 component=catalogue
 source common.sh
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+print_head Copy MongoDB Repo file
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$log_file
+exit_status_print $?
 
 nodejs_app_setup
 
 
+print_head Install MongoDB
+dnf install mongodb-mongosh -y &>>$log_file
+exit_status_print $?
 
-dnf install mongodb-mongosh -y
-
-mongosh --host mongo-dev.salman06.shop </app/db/master-data.js
-
-
+print_head Load Master Data
+mongosh --host mongo-dev.rdevopsb83.online </app/db/master-data.js &>>$log_file
+exit_status_print $?
